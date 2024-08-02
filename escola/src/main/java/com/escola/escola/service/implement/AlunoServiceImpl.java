@@ -1,9 +1,10 @@
-package com.escola.escola.service;
+package com.escola.escola.service.implement;
 
 import com.escola.escola.model.aluno.Aluno;
 import com.escola.escola.model.aluno.AlunoDTO;
 import com.escola.escola.repository.AlunoRepository;
 import com.escola.escola.repository.EnderecoRepository;
+import com.escola.escola.service.interfaces.AlunoServiceInt;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -11,7 +12,7 @@ import java.util.List;
 
 @Service
 @AllArgsConstructor
-public class AlunoServiceImpl implements AlunoServiceInt{
+public class AlunoServiceImpl implements AlunoServiceInt {
     private final AlunoRepository repository;
     private final EnderecoRepository enderecoRepository;
     @Override

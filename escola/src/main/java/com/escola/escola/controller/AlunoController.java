@@ -2,7 +2,7 @@ package com.escola.escola.controller;
 
 import com.escola.escola.model.aluno.Aluno;
 import com.escola.escola.model.aluno.AlunoDTO;
-import com.escola.escola.service.AlunoServiceImpl;
+import com.escola.escola.service.implement.AlunoServiceImpl;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

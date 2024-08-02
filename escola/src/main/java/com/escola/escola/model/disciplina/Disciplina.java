@@ -6,7 +6,9 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.beans.BeanUtils;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -22,4 +24,8 @@ public class Disciplina {
     private List<Professor> listaDeProfessores;
     @ManyToOne
     private Curso curso;
+    public Disciplina(DisciplinaPostDTO dto){
+        BeanUtils.copyProperties(dto, this);
+        setListaDeProfessores(new ArrayList<>());
+    }
 }

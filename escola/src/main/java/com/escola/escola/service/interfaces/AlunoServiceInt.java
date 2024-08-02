@@ -1,4 +1,4 @@
-package com.escola.escola.service;
+package com.escola.escola.service.interfaces;
 
 import com.escola.escola.model.aluno.Aluno;
 import com.escola.escola.model.aluno.AlunoDTO;

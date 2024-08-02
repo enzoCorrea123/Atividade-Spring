@@ -6,6 +6,7 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.beans.BeanUtils;
 
 import java.util.List;
 
@@ -20,6 +21,10 @@ public class Turma {
     private String nome;
     @OneToOne
     private Escola escola;
-    @OneToMany(mappedBy = "turma")
+    @OneToMany
     private List<Aluno> listaDeAlunos;
+
+    public Turma(TurmaDTO dto){
+        BeanUtils.copyProperties(dto,this);
+    }
 }

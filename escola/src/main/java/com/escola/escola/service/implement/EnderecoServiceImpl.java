@@ -1,8 +1,11 @@
-package com.escola.escola.service;
+package com.escola.escola.service.implement;
 
+import com.escola.escola.model.aluno.Aluno;
 import com.escola.escola.model.endereco.Endereco;
 import com.escola.escola.model.endereco.EnderecoDTO;
+import com.escola.escola.repository.AlunoRepository;
 import com.escola.escola.repository.EnderecoRepository;
+import com.escola.escola.service.interfaces.EnderecoServiceInt;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -10,8 +13,9 @@ import java.util.List;
 
 @Service
 @AllArgsConstructor
-public class EnderecoServiceImpl implements EnderecoServiceInt{
+public class EnderecoServiceImpl implements EnderecoServiceInt {
     private final EnderecoRepository repository;
+    private final AlunoRepository alunoRepository;
 
     @Override
     public Endereco postEndereco(EnderecoDTO dto) {
@@ -45,8 +49,14 @@ public class EnderecoServiceImpl implements EnderecoServiceInt{
 
     @Override
     public String deleteEndereco(Long id) {
+
         Endereco endereco = repository.findById(id).get();
+        List<Aluno> alunos = alunoRepository.findAlunoByEndereco(endereco);
+        for(Aluno aluno1 : alunos){
+            aluno1.setEndereco(null);
+        }
+        alunoRepository.saveAll(alunos);
         repository.delete(endereco);
-        return "Endereço deletado!";
+        return "Endereço deletado!" + alunos;
     }
 }

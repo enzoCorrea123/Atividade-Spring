@@ -2,6 +2,7 @@ package com.escola.escola.model.escola;
 import com.escola.escola.model.curso.Curso;
 import com.escola.escola.model.endereco.Endereco;
 import com.escola.escola.model.professor.Professor;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -22,6 +23,7 @@ public class Escola {
     @ManyToOne
     private Endereco endereco;
     @OneToMany(mappedBy = "escola")
+    @JsonIgnore
     private List<Professor> listaDeProfessores;
     @OneToMany(mappedBy = "escola")
     private List<Curso> listaDeCurso;

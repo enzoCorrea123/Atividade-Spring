@@ -18,12 +18,10 @@ public class Aluno {
     private String nome;
     private String email;
     private String telefone;
-    @OneToOne
-    @JoinColumn(nullable = false)
+    @OneToOne(cascade = CascadeType.PERSIST)
     private Endereco endereco;
     @ManyToOne
     private Turma turma;
-
     public Aluno(AlunoDTO dto){
         this.setNome(dto.nome());
         this.setEmail(dto.email());

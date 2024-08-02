@@ -2,7 +2,7 @@ package com.escola.escola.controller;
 
 import com.escola.escola.model.endereco.Endereco;
 import com.escola.escola.model.endereco.EnderecoDTO;
-import com.escola.escola.service.EnderecoServiceImpl;
+import com.escola.escola.service.implement.EnderecoServiceImpl;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

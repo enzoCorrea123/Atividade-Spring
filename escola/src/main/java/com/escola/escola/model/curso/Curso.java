@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.beans.BeanUtils;
 
 import java.util.List;
 
@@ -21,4 +22,6 @@ public class Curso {
     private List<Disciplina> listaDeDisciplinas;
     @ManyToOne
     private Escola escola;
+
+
 }
